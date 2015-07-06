@@ -1,0 +1,52 @@
+body {
+	background-color: #DADADA;
+	margin: 0;
+	padding: 0;
+}
+
+/******* Block ********/
+
+.block {
+	display: block;
+	margin: 0 0 1.5em;
+    border: 1px solid #ccc;
+    background: #fff;
+	border-radius: 5px;
+	box-sizing: border-box;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+.block .header {
+	margin: 0 0 12px 0;
+	padding: 8px 15px 5px 15px;
+	background-color: #eef5f9;
+    border-bottom: 1px solid #dadede;
+    border-radius: 5px 5px 0 0;
+    color: #446479;
+    text-shadow: #fff 0 1px;
+    font-size: 18px;
+}
+.block .section {
+    padding: 0 15px;
+}
+.block .footer {
+    margin: 12px 0 0 0;
+	padding: 8px 15px 10px 15px;
+	background-color: #eef5f9;
+	border-top: 1px solid #dadede;
+	border-radius: 0 0 5px 5px;
+	color: #446479;
+	text-shadow: #fff 0 1px;
+	font-size: 18px;
+}
+
+.color-green {
+    color: green;
+}
+
+.color-red {
+    color: red;
+}
+
+.selected {
+    text-decoration: underline;
+}

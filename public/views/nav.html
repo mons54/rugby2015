@@ -1,0 +1,23 @@
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+            </button>
+            <span class="navbar-brand">{{title}}</span>
+        </div>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="menu in nav" ng-class="navActive(menu.link)">
+                    <a ng-if="!menu.dropdown" href="#{{menu.link}}">{{menu.name}}</a>
+                    <a ng-if="menu.dropdown" class="dropdown-toggle" data-toggle="dropdown" href>{{menu.name}}</a>
+                    <ul ng-if="menu.dropdown" class="dropdown-menu">
+                        <li ng-repeat="menuDropdown in menu.dropdown"><a href="#/{{menuDropdown.link}}">{{menuDropdown.name}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

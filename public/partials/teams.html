@@ -1,0 +1,27 @@
+<div class="block">
+
+    <div class="header">Teams</div>
+    <div class="section">
+        <form role="search" class="pull-right">
+            <div class="form-group">
+                <input ng-model="search" type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><a ng-click="predicate='name'; reverse=!reverse" href>Name</a></th>
+                    <th><a ng-click="predicate='value'; reverse=!reverse" href>Value</a></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="team in teams | filter:search | orderBy:predicate:reverse"
+                    ng-if="team.id">
+                    <td><a href="#/team/{{team.id}}">{{team.name}}</a></td>
+                    <td>{{team.value}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
