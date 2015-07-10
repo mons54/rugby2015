@@ -17,8 +17,8 @@
             </thead>
             <tbody>
                 <tr ng-repeat="team in teams | filter:search | orderBy:predicate:reverse"
-                    ng-if="team.id">
-                    <td><a href="#/team/{{team.id}}">{{team.name}}</a></td>
+                    ng-if="team.name">
+                    <td>{{team.name}}</a></td>
                     <td>{{team.value}}</td>
                 </tr>
             </tbody>

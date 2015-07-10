@@ -74,17 +74,19 @@
             ];
         }
 
+        $scope.factor = 100;
+
         function getPoints(team1, team2, res) {
             if (!team1 || !team2) {
                 return;
             }
-            var x = 100,
+            var x = $scope.factor,
             	diff = team1.value - team2.value;
 
             if (diff > x) {
-            	diff = x;
+                diff = x;
             } else if (diff < (x * -1)) {
-            	diff = x * -1;
+                diff = x * -1;
             }
             return format(20 * (res - (1 - (1 / (1 + Math.pow(10, (diff) / x))))));
         }
@@ -93,38 +95,15 @@
         	return parseFloat(Math.round(value * 100) /100).toFixed(2);
         }
 
-        http.getTeams().
-        then(function (res) {
-            $scope.teams = res.data;
-            return http.getMatchs();
-        }).
-        then(function (res) {
-            $scope.matchs = res.data;
-        });
+        $scope.teams = http.getTeams();
+        $scope.matchs = http.getMatchs();
     }]);
 
     controllers.controller('teamsCtrl', ['$scope', 'http', function ($scope, http) {
 
         $scope.predicate = 'name';
         
-        http.getTeams().
-        then(function (res) {
-            $scope.teams = res.data;
-        });
-    }]);
-
-    controllers.controller('teamCtrl', ['$scope', '$routeParams', 'http', function ($scope, $routeParams, http) {
-        
-        http.getTeam($routeParams.id).
-        then(function (res) {
-            if (res.error) {
-                $scope.error = res.error;
-                return;
-            }
-            $scope.team = res.data;
-        }, function (err) {
-            $scope.error = "HTTP BAD REQUEST!";
-        });
+        $scope.teams = http.getTeams();
     }]);
 
 })();

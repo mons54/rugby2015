@@ -13,10 +13,6 @@
     
     app.config(function ($routeProvider) {
         $routeProvider.
-        when('/', {
-            templateUrl: 'partials/main.html',
-            controller: 'mainCtrl'
-        }).
         when('/matchs', {
             templateUrl: 'partials/matchs.html',
             controller: 'matchsCtrl'
@@ -25,12 +21,8 @@
             templateUrl: 'partials/teams.html',
             controller: 'teamsCtrl'
         }).
-        when('/team/:id', {
-            templateUrl: 'partials/team.html',
-            controller: 'teamCtrl'
-        }).
         otherwise({
-            redirectTo: '/'
+            redirectTo: '/matchs'
         });
     });
 })();

@@ -1,6 +1,11 @@
 <div class="block">
     <div class="header">Matchs</div>
     <div class="section">
+        <form class="pull-right">
+            <div class="form-group">
+                <input ng-model="factor" type="integer" class="form-control">
+            </div>
+        </form>
         <ul style="list-style: none;">
             <li ng-repeat="(key, value) in matchs" 
                 ng-class="{'selected': group == key}" 
@@ -29,10 +34,10 @@
                         ng-class="{'color-green': result > 0, 'color-red': result < 0}" 
                         style="text-align:center">{{ result }} ({{ getPercentage(result, getCote(match.team1)) }})
                     </td>
-                    <td>{{ getCote(match.team1) }}</td>
+                    <td style="text-align:center">{{ getCote(match.team1) }}</td>
                     <td style="text-align:right">{{ getTeam(match.team1) }} </td>
                     <td>{{ getTeam(match.team2) }}</td>
-                    <td>{{ getCote(match.team2) }}</td>
+                    <td style="text-align:center">{{ getCote(match.team2) }}</td>
                     <td ng-repeat="result in getCote2(match)" 
                         ng-class="{'color-green': result > 0, 'color-red': result < 0}" 
                         style="text-align:center">{{ result }} ({{ getPercentage(result, getCote(match.team2)) }})

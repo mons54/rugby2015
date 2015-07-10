@@ -1,6 +1,7 @@
 module.exports = function (app) {
 
     var teams = [
+        {},
         { position: 1, name: "Namibie", points: 57.74 },
         { position: 2, name: "Uruguay", points: 62.11 },
         { position: 3, name: "Roumanie", points: 66.73 },
@@ -79,9 +80,9 @@ module.exports = function (app) {
         teams.forEach(function (value) {
             data.push({
                 name: value.name,
-                value: ((21 - value.position) * value.points) / 10 
+                value: Math.round(((value.position * value.points) / 10) * 100) / 100
             });
-        }
+        });
         return data;
     }                        
 
@@ -100,7 +101,7 @@ module.exports = function (app) {
     });
 
     app.get('/teams', function (req, res) {
-        res.json({ data: teams });
+        res.json({ data: getTeams() });
     });
 
     app.post('/team', function (req, res) {
